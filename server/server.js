@@ -1,11 +1,14 @@
 import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 import VaultHuntersRouter from "./routes/VaultHunters.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
-app.use("/public", express.static("./public"));
-
-app.use("/scripts", express.static("./public/scripts"));
+app.use("/public", express.static(path.join(__dirname, "../client/public")));
 
 app.use("/vaulthunters", VaultHuntersRouter);
 

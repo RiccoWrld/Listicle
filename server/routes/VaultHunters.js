@@ -13,9 +13,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  res
-    .status(200)
-    .sendFile(path.resolve(__dirname, "../public/vaulthunter.html"));
+  res.sendFile(path.resolve(__dirname, "../../client/public/vaulthunter.html"));
 });
 
 export default router;
